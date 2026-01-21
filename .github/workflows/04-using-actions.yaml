@@ -5,16 +5,24 @@ on: push
 jobs:
     Build: 
         runs-on: ubuntu-latest
+        defaults:
+            run: 
+              working-directory: 04-using-actions/react-app
         steps:
           - name: Checkout code
             uses: actions/checkout@v4
+            
           - name: Setup Node
             uses: actions/setup-node@v4
             with:
                 node-version: '20.x'
+
           - name: install Dependencies
             run: npm ci
-            working-directory: 04-using-actions/react-app
+            
+          - name: Run unit Tests
+            run: npm run test
+          
         #checkout the code from repository
         #1.install dependencies for react application
         #2.Execute automated tests
