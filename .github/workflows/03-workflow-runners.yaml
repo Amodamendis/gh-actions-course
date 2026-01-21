@@ -10,4 +10,11 @@ jobs:
             run: |
                echo "This Jobs is running on an ubuntu server"
                echo "Runner OS: $RUNNER_OS"
-               
+    windows-echo:
+        runs-on: windows-latest
+        steps:
+          - name: Show os
+            shell: bash
+            run: |
+               echo "This is running on a windows runner"
+               echo "RUNNER_OS: $RUNNER_OS"
